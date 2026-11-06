@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="NovaMente: aprenda sobre nutrição, cérebro, imagem corporal e hábitos saudáveis com atividades interativas.">
+<title>NovaMente — Nutrição, Saúde e Equilíbrio</title>
+<style>
+:root{--green:#14563b;--deep:#0b3022;--leaf:#3b8557;--mint:#e7eee2;--cream:#f7f0df;--ink:#173e35;--muted:#567168;--lav:#eff0ff;--white:#fff;--line:#dce8da;--shadow:0 12px 35px #153e2b12}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6}
+a{color:inherit}button{font:inherit;cursor:pointer}.wrap{width:min(1180px,92%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:#f7f0dfed;backdrop-filter:blur(12px);border-bottom:1px solid #dce8da}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:22px}.brand{display:flex;gap:10px;align-items:center;text-decoration:none;font-weight:850;font-size:1.3rem;line-height:1.1}.brand-mark{width:38px;height:38px;border-radius:12px;background:var(--green);display:grid;place-items:center;color:white;font-size:1.35rem}.brand small{display:block;font-size:.63rem;letter-spacing:.08em;font-weight:650;color:var(--muted);margin-top:4px}.links{display:flex;gap:20px;align-items:center;font-size:.84rem}.links a{text-decoration:none;color:#244b40}.links a:hover{color:var(--leaf)}.nav-cta,.btn{border:0;border-radius:999px;background:var(--green);color:white;padding:12px 18px;font-weight:750;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:.2s}.nav-cta:hover,.btn:hover{background:#0e5034;transform:translateY(-1px)}.menu{display:none;background:transparent;border:1px solid var(--line);padding:8px 12px;border-radius:10px;color:var(--deep)}
+.hero{position:relative;overflow:hidden;color:white;background:linear-gradient(90deg,#103d2df5 0%,#103d2ddf 40%,#103d2d20 100%),url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1900&q=85') center/cover;min-height:410px;display:flex;align-items:center}
+.hero-content{padding:72px 0;max-width:620px}.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-weight:800;font-size:.75rem;color:#bce8a6}.hero h1{font-size:clamp(2.5rem,5vw,4.5rem);line-height:1.03;letter-spacing:-.045em;margin:14px 0 18px}.hero h1 span{color:#b8e995}.hero p{font-size:1.08rem;max-width:540px;color:#f0f7ed}.hero .btn{margin-top:12px;background:#43a663}
+.benefits{background:#fff;border-bottom:1px solid var(--line)}.benefit-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}.benefit{padding:20px 14px;display:flex;align-items:center;gap:12px;border-right:1px solid #e6ede3;font-size:.88rem;font-weight:700}.benefit:last-child{border:0}.benefit span{font-size:1.55rem}
+section{padding:70px 0}.section-head{max-width:720px;margin-bottom:28px}.kicker{color:var(--green);font-weight:850;text-transform:uppercase;letter-spacing:.12em;font-size:.76rem}.section-head h2{font-size:clamp(1.9rem,3.5vw,2.8rem);letter-spacing:-.035em;line-height:1.12;margin:10px 0}.section-head p{color:var(--muted);margin:0}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.card{background:white;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow)}.card-img{height:220px;width:100%;object-fit:cover;display:block}.card-body{padding:25px}.tag{display:inline-block;background:var(--mint);color:var(--green);border-radius:999px;padding:5px 11px;font-size:.76rem;font-weight:800}.card h3{font-size:1.45rem;line-height:1.2;margin:13px 0 10px}.card p{color:var(--muted);margin:0 0 15px}.learn-more{border:0;background:transparent;color:var(--green);font-weight:800;padding:5px 0}.extra{display:none;border-top:1px solid var(--line);margin-top:16px;padding-top:15px;color:var(--ink)}.extra.open{display:block}.note{padding:15px 17px;border-radius:14px;background:#f0f7eb;border-left:4px solid var(--leaf);font-size:.92rem;margin-top:12px}
+.neuro{background:#eee8d8}.split{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}.split img{width:100%;height:390px;object-fit:cover;border-radius:24px;box-shadow:var(--shadow)}.bullets{padding:0;list-style:none;display:grid;gap:14px}.bullets li{display:flex;gap:12px;align-items:flex-start}.bullets b{display:block}.check{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#d9edce;color:var(--green);font-weight:900}
+.food-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.food{background:white;border:1px solid var(--line);border-radius:18px;padding:20px}.food .emoji{font-size:2rem}.food h3{margin:9px 0 5px;font-size:1.08rem}.food p{font-size:.9rem;color:var(--muted);margin:0}.food small{display:block;margin-top:10px;color:var(--green);font-weight:800}
+.activity{background:var(--deep);color:white;border-radius:26px;padding:clamp(22px,5vw,48px);display:grid;grid-template-columns:.8fr 1.2fr;gap:30px;align-items:start}.activity h2{font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.1;margin:10px 0}.activity p{color:#d7e8dc}.quiz-box{background:#fffdf6;color:var(--ink);border-radius:20px;padding:24px}.progress{height:7px;background:#e1e9dc;border-radius:10px;overflow:hidden;margin-bottom:20px}.progress-bar{height:100%;width:0;background:#3c9b5c;transition:width .25s}.question{font-size:1.12rem;font-weight:800;margin-bottom:16px}.answers{display:grid;gap:10px}.answer{border:1px solid #cfdfd0;border-radius:12px;padding:12px 14px;background:white;text-align:left;color:var(--ink)}.answer:hover{border-color:var(--leaf);background:#f3f8ef}.answer.correct{border-color:#25834b;background:#e5f6e7}.answer.wrong{border-color:#c95d4b;background:#fff0ed}.quiz-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:18px}.quiz-feedback{font-size:.92rem;color:var(--muted);min-height:24px}.quiz-bottom .btn{padding:10px 16px}.quiz-bottom .btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.daily{display:grid;grid-template-columns:1fr 1fr;gap:24px}.daily-panel{border-radius:22px;padding:28px;background:var(--mint)}.daily-panel:nth-child(2){background:#f8f1df}.daily-panel h3{font-size:1.35rem;margin:0 0 10px}.daily-panel p{color:var(--muted)}.daily-panel ul{padding-left:20px}.daily-panel li{margin:7px 0}
+.disclaimer{font-size:.86rem;color:#5c756b;border:1px solid var(--line);padding:16px 18px;border-radius:14px;margin-top:28px}
+footer{background:#0c3024;color:white;padding:36px 0}.footer-row{display:flex;justify-content:space-between;gap:25px;align-items:center}.footer-row p{color:#c9ddd1;margin:5px 0 0;font-size:.88rem}.footer-links{display:flex;gap:18px;flex-wrap:wrap}.footer-links a{color:#e6f1e8;text-decoration:none;font-size:.88rem}
+@media(max-width:900px){.links{display:none;position:absolute;top:72px;left:0;right:0;background:var(--cream);padding:18px 4%;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--line)}.links.open{display:flex}.menu{display:block}.nav-cta{display:none}.benefit-grid{grid-template-columns:repeat(2,1fr)}.benefit:nth-child(2){border-right:0}.benefit:nth-child(-n+2){border-bottom:1px solid #e6ede3}.food-grid{grid-template-columns:repeat(2,1fr)}.activity{grid-template-columns:1fr}.split{grid-template-columns:1fr}.split img{height:300px}}
+@media(max-width:620px){.hero{min-height:440px;background-position:60% center}.hero-content{padding:58px 0}.hero p{font-size:1rem}.benefit{font-size:.8rem;padding:15px 8px}.cards,.daily{grid-template-columns:1fr}section{padding:52px 0}.card-img{height:200px}.food-grid{grid-template-columns:1fr 1fr;gap:10px}.food{padding:15px}.quiz-box{padding:17px}.footer-row{align-items:flex-start;flex-direction:column}}
+
+.neuro-details{padding-top:10px}.detail-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.detail-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow)}.detail-icon{width:46px;height:46px;display:grid;place-items:center;border-radius:14px;background:var(--mint);font-size:1.5rem}.detail-card h3{margin:13px 0 7px;font-size:1.1rem}.detail-card p{margin:0;color:var(--muted);font-size:.94rem}.detail-split{margin:20px 0}.nutrient-table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:white}.nutrient-table{width:100%;border-collapse:collapse;min-width:650px}.nutrient-table th,.nutrient-table td{text-align:left;vertical-align:top;padding:14px 16px;border-bottom:1px solid var(--line)}.nutrient-table th{background:#e5f1e2;color:var(--deep);font-size:.9rem}.nutrient-table td{font-size:.9rem}.nutrient-table tr:last-child td{border-bottom:0}
+.image-fallback{height:220px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;text-align:center;padding:20px;background:radial-gradient(circle at 80% 20%,#d7edc6,transparent 35%),linear-gradient(135deg,#e9f4e5,#d5e8d3);color:var(--green);font-size:3rem}.image-fallback span{font-size:.92rem;font-weight:750;max-width:240px}
+@media(max-width:900px){.detail-grid{grid-template-columns:1fr 1fr}}@media(max-width:620px){.detail-grid{grid-template-columns:1fr}.detail-card{padding:19px}.nutrient-table th,.nutrient-table td{padding:11px}}
+
+
+.branch-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:12px 0 20px}.branch{background:#f7f0df;border:1px solid #d8dfcf;border-radius:14px;padding:15px}.branch b{color:var(--deep);display:block;margin-bottom:6px}.branch p{font-size:.91rem;margin:0;color:var(--muted)}.extra h4{margin:20px 0 8px;color:var(--deep)}.sources{font-size:.88rem;color:var(--muted);line-height:1.7}.sources a{color:var(--green)}@media(max-width:900px){.branch-grid{grid-template-columns:1fr}}
+
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#inicio"><span class="brand-mark">✿</span><span>NovaMente<small>NUTRIÇÃO · SAÚDE · EQUILÍBRIO</small></span></a>
+    <nav class="links" id="links"><a href="#sobre">Sobre</a><a href="#dismorfia">Dismorfia corporal</a><a href="#neuro">Neuro-nutrição</a><a href="#cotidiano">Cotidiano</a><a href="#alimentos">Alimentos</a><a href="#atividade">Atividade</a></nav>
+    <a class="nav-cta" href="#atividade">Comece agora ↗</a>
+    <button class="menu" id="menu" aria-label="Abrir menu">☰</button>
+  </div>
+</header>
+<main>
+<section class="hero" id="inicio">
+  <div class="wrap"><div class="hero-content">
+    <div class="eyebrow">Conhecimento para cuidar de você</div>
+    <h1>Mais do que estética,<br><span>é sobre saúde.</span></h1>
+    <p>Descubra como a alimentação, o cérebro e os hábitos do dia a dia se conectam — e como construir uma relação mais consciente com a comida e com o próprio corpo.</p>
+    <a class="btn" href="#sobre">Explore a jornada <span>→</span></a>
+  </div></div>
+</section>
+<div class="benefits"><div class="wrap benefit-grid">
+  <div class="benefit"><span>🧠</span> Entenda seu corpo<br>e sua mente</div>
+  <div class="benefit"><span>🍎</span> Aprenda sobre<br>alimentação de verdade</div>
+  <div class="benefit"><span>🌿</span> Conheça a relação entre<br>cérebro e nutrição</div>
+  <div class="benefit"><span>♡</span> Desenvolva hábitos<br>mais conscientes</div>
+</div></div>
+<section id="sobre">
+ <div class="wrap">
+  <div class="section-head"><div class="kicker">Uma jornada de conhecimento</div><h2>Saúde não cabe em um único padrão.</h2><p>Nutrição envolve muito mais do que escolher alimentos: inclui cultura, rotina, acesso, emoções, sono, movimento e a maneira como nos percebemos.</p></div>
+  <div class="cards">
+   <article class="card" id="dismorfia">
+    <img class="card-img" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1000&q=85" alt="Pessoa refletindo diante de um espelho" loading="lazy">
+    <div class="card-body"><span class="tag">Imagem corporal e saúde mental</span><h3>Quando a imagem não conta toda a história</h3><p>A dismorfia corporal é uma condição de saúde mental que envolve preocupação intensa com características da aparência que outras pessoas podem perceber pouco ou nem notar.</p>
+    <button class="learn-more" data-target="extra-dismorfia" aria-expanded="false">Saiba mais +</button>
+    <div class="extra" id="extra-dismorfia">
+      <p>O transtorno dismórfico corporal (TDC) envolve uma preocupação intensa com características da aparência que parecem pequenas ou nem são percebidas por outras pessoas. Pode levar a checagens repetidas no espelho, comparações, tentativas de esconder uma característica e sofrimento que interfere na rotina.</p>
+      <h4>Algumas formas e manifestações relacionadas</h4>
+      <div class="branch-grid">
+       <div class="branch"><b>Vigorexia (dismorfia muscular)</b><p>A pessoa sente que não tem músculos suficientes ou que seu corpo é pequeno, mesmo quando outras pessoas não percebem isso. A preocupação pode dominar a rotina e levar a exercícios compulsivos, regras rígidas com a alimentação ou práticas arriscadas. Pode afetar pessoas de diferentes gêneros.</p></div>
+       <div class="branch"><b>Preocupação com características específicas</b><p>A atenção pode ficar presa a aspectos como pele, cabelo, nariz ou outras partes do corpo. A pessoa pode buscar confirmação constante, comparar-se com outras ou evitar situações sociais.</p></div>
+       <div class="branch"><b>Influência das redes e padrões estéticos</b><p>Filtros, imagens editadas, comentários e comparações podem intensificar a insatisfação, embora não sejam a única causa do transtorno.</p></div>
+      </div>
+      <h4>O que a serotonina tem a ver com isso?</h4>
+      <p>A serotonina é um mensageiro químico (neurotransmissor) envolvido em várias funções, como humor, ansiedade, sono e processamento de informações. Pesquisas sugerem que sistemas cerebrais que usam serotonina podem participar do transtorno dismórfico corporal, mas <b>não existe uma explicação única e a condição não é simplesmente “falta de serotonina”</b>.</p>
+      <p>Em alguns casos, profissionais podem indicar psicoterapia, como a terapia cognitivo-comportamental, e avaliar medicamentos que atuam na serotonina. Isso exige avaliação clínica; não se deve iniciar, interromper ou alterar medicamentos por conta própria.</p>
+      <div class="note"><b>Quando buscar apoio:</b> se preocupações com a aparência tomam muito tempo, causam sofrimento ou atrapalham a escola, amizades, alimentação ou atividades diárias, converse com um adulto de confiança e procure um profissional de saúde. Só um profissional qualificado pode fazer o diagnóstico.</div>
+    </div></div>
+   </article>
+   <article class="card" id="cotidiano">
+    <img class="card-img" src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1000&q=85" alt="Mesa com alimentos variados e coloridos" loading="lazy">
+    <div class="card-body"><span class="tag">Nutrição do cotidiano</span><h3>Pequenas escolhas, cuidado possível</h3><p>O que comemos no dia a dia contribui para energia, crescimento, recuperação e bem-estar. Não existe uma refeição perfeita nem um único jeito de se alimentar bem.</p>
+    <button class="learn-more" data-target="extra-cotidiano" aria-expanded="false">Ver dicas práticas +</button>
+    <div class="extra" id="extra-cotidiano"><ul><li>Varie os alimentos ao longo da semana, considerando cultura, preferência e disponibilidade.</li><li>Quando possível, combine alimentos de diferentes grupos nas refeições.</li><li>Beba água regularmente e respeite sinais de fome e saciedade.</li><li>Planeje lanches simples para dias corridos, sem transformar a alimentação em motivo de culpa.</li></ul><div class="note">Alimentação saudável precisa caber na vida real, no orçamento e na rotina de cada pessoa.</div></div></div>
+   </article>
+  </div>
+ </div>
+</section>
+<section class="neuro" id="neuro">
+ <div class="wrap split">
+  <div><div class="kicker">Neuro-nutrição</div><h2 style="font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin:10px 0 16px">O que você come também conversa com seu cérebro.</h2>
+   <p>A neuro-nutrição estuda como nutrientes, padrões alimentares e o funcionamento do sistema nervoso se relacionam. O cérebro precisa de energia e de diversos nutrientes para funcionar — mas nenhum alimento isolado garante felicidade ou concentração.</p>
+   <ul class="bullets">
+    <li><span class="check">✓</span><div><b>Energia para pensar</b>O cérebro usa energia continuamente, inclusive durante o descanso.</div></li>
+    <li><span class="check">✓</span><div><b>Micronutrientes importantes</b>Vitaminas e minerais participam de processos essenciais do sistema nervoso.</div></li>
+    <li><span class="check">✓</span><div><b>Um conjunto de hábitos</b>Alimentação variada, sono, hidratação e apoio social também importam para o bem-estar.</div></li>
+   </ul>
+  </div>
+  <img src="https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?auto=format&fit=crop&w=1100&q=85" alt="Refeição colorida com vegetais, grãos e fontes de proteína" loading="lazy">
+ </div>
+ <div class="wrap neuro-details">
+  <div class="section-head" style="margin:48px 0 22px"><div class="kicker">Ômega-3 e cérebro</div><h2>Como o DHA participa da comunicação entre neurônios?</h2><p>O DHA (ácido docosa-hexaenoico) é um ácido graxo ômega-3 encontrado em altas concentrações nas membranas das células do cérebro, especialmente na retina e no tecido nervoso.</p></div>
+  <div class="detail-grid">
+   <article class="detail-card"><div class="detail-icon">🧠</div><h3>Membranas flexíveis</h3><p>O DHA integra os fosfolipídios das membranas celulares e influencia suas propriedades, incluindo a fluidez. Isso ajuda a manter condições adequadas para proteínas e receptores que participam da comunicação celular.</p></article>
+   <article class="detail-card"><div class="detail-icon">🔗</div><h3>Sinapses e aprendizagem</h3><p>As sinapses são pontos de comunicação entre neurônios. O DHA participa de processos relacionados à função sináptica e à plasticidade, importante para aprender e formar memórias. Isso não significa que consumir mais ômega-3, por si só, aumente a inteligência ou a memória.</p></article>
+   <article class="detail-card"><div class="detail-icon">🐟</div><h3>Onde encontrar</h3><p>Peixes gordurosos, como sardinha e salmão, fornecem EPA e DHA. Sementes de chia e linhaça e nozes fornecem ALA, outro tipo de ômega-3 que o corpo converte em EPA e DHA de forma limitada.</p></article>
+  </div>
+  <div class="note"><b>Importante:</b> o DHA é relevante para o funcionamento do sistema nervoso, mas os resultados de estudos variam conforme idade, alimentação, saúde e contexto. Suplementos não são necessários para todas as pessoas; procure orientação profissional antes de usá-los.</div>
+
+  <div class="section-head" style="margin:48px 0 22px"><div class="kicker">Eixo intestino-cérebro</div><h2>Uma conversa de mão dupla entre intestino e cérebro.</h2><p>O eixo intestino-cérebro é uma rede de comunicação que envolve nervos, hormônios, sistema imunológico e substâncias produzidas por microrganismos intestinais.</p></div>
+  <div class="split detail-split">
+   <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=85" alt="Alimentos variados ricos em fibras, como vegetais e leguminosas" loading="lazy">
+   <div><h3>Por que sentimos emoções no estômago?</h3><p>Ansiedade, nervosismo e estresse podem alterar a atividade do sistema digestivo. É por isso que algumas pessoas sentem “borboletas no estômago”, desconforto ou mudanças no apetite em situações emocionantes. A comunicação também acontece no sentido inverso: sinais do intestino podem influenciar o cérebro.</p>
+   <ul class="bullets">
+    <li><span class="check">✓</span><div><b>Sistema nervoso entérico</b>Uma rede de neurônios no trato gastrointestinal ajuda a coordenar a digestão e se comunica com o sistema nervoso central.</div></li>
+    <li><span class="check">✓</span><div><b>Microbiota intestinal</b>É a comunidade de microrganismos que vive no intestino. Ela participa da digestão de componentes dos alimentos e interage com o sistema imune.</div></li>
+    <li><span class="check">✓</span><div><b>Comunicação complexa</b>Nervos, hormônios, sinais imunes e substâncias microbianas participam dessa rede. A ciência continua investigando como essas interações afetam diferentes aspectos da saúde.</div></li>
+   </ul></div>
+  </div>
+  <div class="detail-grid" style="margin-top:22px">
+   <article class="detail-card"><div class="detail-icon">🥣</div><h3>Alimente a microbiota</h3><p>Fibras presentes em feijões, lentilha, aveia, frutas, verduras e cereais integrais podem ser utilizadas por parte das bactérias intestinais. A variedade ao longo do tempo importa mais do que buscar um alimento “milagroso”.</p></article>
+   <article class="detail-card"><div class="detail-icon">🫙</div><h3>Probióticos e prebióticos</h3><p>Alguns alimentos fermentados podem conter microrganismos vivos; prebióticos são componentes usados por microrganismos específicos. Nem todo produto funciona da mesma forma, e cápsulas não são necessárias para todo mundo.</p></article>
+   <article class="detail-card"><div class="detail-icon">🌱</div><h3>Consistência, não restrição</h3><p>Em geral, é mais sustentável construir um padrão alimentar variado e possível de manter do que fazer dietas restritivas sem indicação. Água, sono, movimento e acompanhamento de saúde também fazem parte do cuidado.</p></article>
+  </div>
+
+  <div class="section-head" style="margin:48px 0 22px"><div class="kicker">Cérebro e memória</div><h2>Quais nutrientes participam da atenção e da memória?</h2><p>O cérebro precisa de energia e de nutrientes para manter suas células, produzir mensageiros químicos e sustentar funções como atenção, raciocínio e formação de lembranças.</p></div>
+  <div class="nutrient-table-wrap"><table class="nutrient-table"><thead><tr><th>Nutriente</th><th>Como participa</th><th>Fontes alimentares</th></tr></thead><tbody>
+   <tr><td><b>Ômega-3</b></td><td>Faz parte das membranas celulares e participa da função neural.</td><td>Sardinha, salmão; chia, linhaça e nozes fornecem ALA.</td></tr>
+   <tr><td><b>Vitaminas do complexo B</b></td><td>Participam do metabolismo energético e de processos do sistema nervoso.</td><td>Leguminosas, ovos, carnes, verduras e cereais; B12 aparece principalmente em alimentos de origem animal e produtos fortificados.</td></tr>
+   <tr><td><b>Colina</b></td><td>É usada na produção de acetilcolina, mensageiro envolvido em memória e controle muscular.</td><td>Ovos, soja, carnes e alguns legumes.</td></tr>
+   <tr><td><b>Ferro</b></td><td>Ajuda no transporte de oxigênio e em processos importantes para o cérebro.</td><td>Feijões, lentilha, carnes e alimentos fortificados.</td></tr>
+   <tr><td><b>Magnésio e zinco</b></td><td>Participam de muitas reações enzimáticas e do funcionamento celular.</td><td>Castanhas, sementes, leguminosas, grãos integrais e outros alimentos variados.</td></tr>
+   <tr><td><b>Vitamina E e polifenóis</b></td><td>Alguns atuam em processos antioxidantes e ajudam a proteger componentes celulares.</td><td>Nozes, sementes, óleos vegetais, frutas, verduras, cacau e chá.</td></tr>
+  </tbody></table></div>
+  <div class="note"><b>Não existe nutriente mágico para a memória.</b> Uma alimentação variada ajuda a fornecer os nutrientes necessários, mas memória e concentração também são influenciadas por sono, estresse, saúde, aprendizagem e contexto de vida. Suplementar sem necessidade pode ser inútil ou trazer riscos.</div>
+ </div>
+</section>
+<section id="alimentos">
+ <div class="wrap">
+  <div class="section-head"><div class="kicker">Funcionamento dos alimentos</div><h2>Seu organismo transforma alimentos em energia e materiais.</h2><p>Os alimentos fornecem diferentes nutrientes. Eles trabalham em conjunto, e suas necessidades variam conforme idade, saúde, rotina e outros fatores.</p></div>
+  <div class="food-grid">
+   <article class="food"><div class="emoji">🌾</div><h3>Carboidratos</h3><p>São uma fonte importante de energia para o corpo e o cérebro. Aparecem em arroz, aveia, batata, frutas e pães.</p><small>Função: energia</small></article>
+   <article class="food"><div class="emoji">🥚</div><h3>Proteínas</h3><p>Fornecem aminoácidos usados na construção e manutenção de músculos, pele e outras estruturas.</p><small>Função: construir e reparar</small></article>
+   <article class="food"><div class="emoji">🥑</div><h3>Gorduras</h3><p>Participam das membranas celulares, ajudam na absorção de vitaminas A, D, E e K e também fornecem energia.</p><small>Função: reserva e absorção</small></article>
+   <article class="food"><div class="emoji">🥦</div><h3>Vitaminas e minerais</h3><p>Participam de reações do organismo, imunidade, formação de tecidos e funcionamento do sistema nervoso.</p><small>Função: regular processos</small></article>
+  </div>
+  <div class="detail-grid" style="margin-top:22px">
+   <article class="detail-card"><div class="detail-icon">⚡</div><h3>Digestão e energia</h3><p>Durante a digestão, os alimentos são desmanchados em componentes menores. O corpo absorve muitos desses nutrientes e os utiliza para produzir energia, formar tecidos e manter órgãos em funcionamento.</p></article>
+   <article class="detail-card"><div class="detail-icon">🛡️</div><h3>Defesa e manutenção</h3><p>Proteínas, vitaminas, minerais e outros componentes da alimentação colaboram com a renovação dos tecidos e o funcionamento do sistema imune. Nenhum alimento impede sozinho todas as doenças.</p></article>
+   <article class="detail-card"><div class="detail-icon">🌾</div><h3>Fibras e intestino</h3><p>As fibras de feijões, frutas, verduras e cereais integrais ajudam no funcionamento intestinal. Aumentar fibras gradualmente e beber água pode ajudar na tolerância digestiva.</p></article>
+  </div>
+  <div class="note" style="margin-top:20px">A alimentação é apenas uma parte da saúde. Acesso a alimentos, cultura, rotina, sono, atividade física, condições de saúde e bem-estar emocional também influenciam os hábitos.</div>
+ </div>
+</section>
+<section>
+ <div class="wrap">
+  <div class="section-head"><div class="kicker">Na prática</div><h2>Hábitos saudáveis sem regras impossíveis.</h2><p>Não é necessário fazer tudo de uma vez. O cuidado é construído com escolhas realistas e consistentes.</p></div>
+  <div class="daily">
+   <div class="daily-panel"><h3>🥗 Nutrição no cotidiano</h3><ul><li>Monte refeições variadas dentro das possibilidades da sua casa.</li><li>Inclua alimentos in natura ou minimamente processados sempre que for possível.</li><li>Aprenda a observar rótulos sem classificar alimentos como “bons” ou “ruins” moralmente.</li></ul></div>
+   <div class="daily-panel"><h3>💚 Relação com o corpo</h3><ul><li>Evite comparar seu corpo com imagens editadas ou padrões das redes sociais.</li><li>Valorize o que seu corpo permite fazer, não apenas sua aparência.</li><li>Se preocupações com aparência ou comida causam sofrimento, procure apoio confiável.</li></ul></div>
+  </div>
+  <p class="disclaimer"><b>Nota educativa:</b> este site foi pensado para aprendizagem e não substitui orientação individual de nutricionista, médico ou psicólogo. Necessidades nutricionais e questões de saúde mental devem ser avaliadas por profissionais qualificados.</p>
+ </div>
+</section>
+<section id="atividade" style="padding-top:20px">
+ <div class="wrap">
+  <div class="activity">
+   <div><div class="eyebrow">Aprenda testando</div><h2>Teste seus conhecimentos.</h2><p>Responda às perguntas e receba um retorno imediato. Errar também faz parte do aprendizado.</p><div style="font-size:2rem;margin-top:20px">🌱 🧠 🍎</div></div>
+   <div class="quiz-box">
+    <div class="progress"><div class="progress-bar" id="progress"></div></div>
+    <div id="quiz"><div class="question" id="question">1. Qual afirmação sobre carboidratos está correta?</div><div class="answers" id="answers"></div><div class="quiz-bottom"><span class="quiz-feedback" id="feedback" aria-live="polite">Escolha uma resposta.</span><button class="btn" id="next" disabled>Próxima →</button></div></div>
+   </div>
+  </div>
+ </div>
+</section>
+</main>
+<footer><div class="wrap footer-row"><div><a class="brand" href="#inicio" style="color:white"><span class="brand-mark" style="background:#3c995d">✿</span><span>NovaMente<small style="color:#c9ddd1">NUTRIÇÃO · SAÚDE · EQUILÍBRIO</small></span></a><p>Conhecimento para cuidar do corpo e da mente.</p></div><div class="footer-links"><a href="#dismorfia">Imagem corporal</a><a href="#neuro">Neuro-nutrição</a><a href="#cotidiano">Cotidiano</a><a href="#atividade">Quiz</a></div></div></footer>
+<script>
+const menu=document.getElementById('menu'),links=document.getElementById('links');
+menu.addEventListener('click',()=>links.classList.toggle('open'));
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+document.querySelectorAll('.learn-more').forEach(btn=>btn.addEventListener('click',()=>{const panel=document.getElementById(btn.dataset.target);const open=panel.classList.toggle('open');btn.setAttribute('aria-expanded',open);btn.textContent=open?'Mostrar menos −':(btn.dataset.target==='extra-cotidiano'?'Ver dicas práticas +':'Saiba mais +')}));
+const questions=[
+ {q:'Qual afirmação sobre carboidratos está correta?',a:['Todos os carboidratos fazem mal.','São uma fonte importante de energia para o organismo.','Devem ser eliminados para ter saúde.','Só existem em doces.'],correct:1,why:'Isso mesmo! Carboidratos aparecem em alimentos variados, como arroz, aveia, frutas, batata e pães.'},
+ {q:'O que é dismorfia corporal?',a:['Gostar de variar o estilo de roupa.','Uma preocupação intensa com características da aparência que causa sofrimento.','Uma deficiência de vitaminas.','Uma preferência alimentar.'],correct:1,why:'Correto. É uma condição de saúde mental e pode exigir avaliação e apoio profissional.'},
+ {q:'Qual frase descreve melhor a neuro-nutrição?',a:['Um alimento pode resolver todos os problemas de humor.','Só suplementos afetam o cérebro.','Estuda relações entre alimentação, nutrientes e sistema nervoso.','A alimentação não tem relação com o cérebro.'],correct:2,why:'Isso! A área estuda relações complexas; nenhum alimento isolado garante determinado humor ou desempenho.'},
+ {q:'Qual é uma atitude útil para o cotidiano?',a:['Sentir culpa sempre que come algo diferente.','Seguir a mesma dieta de outra pessoa.','Variar alimentos conforme suas possibilidades e necessidades.','Pular refeições para compensar.'],correct:2,why:'Boa! Hábitos realistas e variados são mais úteis do que regras rígidas ou comparações.'},
+ {q:'Qual é uma função das proteínas?',a:['Construir e reparar estruturas do corpo.','Substituir a água.','Impedir todas as doenças.','Fornecer exclusivamente vitaminas.'],correct:0,why:'Correto. Proteínas fornecem aminoácidos usados na construção e manutenção de diferentes tecidos.'}
+];
+let current=0,score=0,selected=null,answered=false;
+const qEl=document.getElementById('question'),aEl=document.getElementById('answers'),fb=document.getElementById('feedback'),next=document.getElementById('next'),progress=document.getElementById('progress');
+function render(){selected=null;answered=false;const item=questions[current];qEl.textContent=`${current+1}. ${item.q}`;aEl.innerHTML='';fb.textContent='Escolha uma resposta.';next.disabled=true;next.textContent=current===questions.length-1?'Ver resultado →':'Próxima →';progress.style.width=(current/questions.length*100)+'%';item.a.forEach((answer,i)=>{const b=document.createElement('button');b.className='answer';b.textContent=String.fromCharCode(65+i)+') '+answer;b.addEventListener('click',()=>choose(i,b));aEl.appendChild(b)});}
+function choose(i,button){if(answered)return;answered=true;selected=i;const item=questions[current];[...aEl.children].forEach((b,j)=>{b.disabled=true;if(j===item.correct)b.classList.add('correct');else if(j===i)b.classList.add('wrong')});if(i===item.correct)score++;fb.textContent=(i===item.correct?'✓ Correto! ':'Quase! ')+item.why;next.disabled=false;}
+next.addEventListener('click',()=>{if(!answered)return;if(current<questions.length-1){current++;render()}else{progress.style.width='100%';qEl.textContent=`Você acertou ${score} de ${questions.length}!`;aEl.innerHTML='';fb.textContent=score===questions.length?'Excelente! Você concluiu o quiz.':score>=3?'Bom trabalho! Revise os temas e tente novamente.':'Continue explorando o site e tente novamente.';next.textContent='Refazer quiz ↻';next.disabled=false;next.onclick=()=>{current=0;score=0;next.onclick=null;render()}}});
+render();
+
+document.querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>{
+  if(img.dataset.fallbackDone)return;img.dataset.fallbackDone='1';
+  const box=document.createElement('div');box.className='image-fallback';box.setAttribute('role','img');box.setAttribute('aria-label',img.alt||'Ilustração sobre alimentação e saúde');
+  const icon=document.createElement('div');icon.textContent=img.closest('#dismorfia')?'♡':(img.closest('#neuro')?'🧠':'🥗');
+  const label=document.createElement('span');label.textContent=img.alt||'Nutrição, saúde e equilíbrio';
+  box.append(icon,label);img.replaceWith(box);
+}));
+
+</script>
+</body>
+</html>
